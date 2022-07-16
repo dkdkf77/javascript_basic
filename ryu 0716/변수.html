@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+</head>
+<body>
+    <h2>변수</h2>
+    <script>
+        'use strict' //엄격모드
+        //변수는 자바스크립트에서 값을 저장하는 공간
+        /*
+        사용가능한 문자는 영문자, 숫자, _ , $
+        숫자로 시작할 수 없다
+        공백은 허용되지 않는다
+        변수 선언 한글도 가능하지만 안쓰는게 좋다
+        예약어를 사용할 수 없다
+        */
+        var num;
+        num = 10; //숫자,
+        // num = '10'; 문자열 변수
+        // num = true or false; 상태값
+        console.log(num) // 변수 출력
+        console.log('num') // 문자열
+
+         var num2;
+         console.log(num2); //undefined 변수의 값이 없는 상태
+
+        // num3 =  20;
+        // console.log(num3) //원래는 가능한데 엄격모드로 err 잡힘 
+
+        let age;
+        age = 20;
+        console.log(age);
+
+        let name;
+        name = "류승환";
+        console.log(name);
+
+        let num100 = 0 ;  숫자형, 변수선언
+        let num200 = '';  문자형 변수선언 
+
+    </script>
+</body>
+</html>

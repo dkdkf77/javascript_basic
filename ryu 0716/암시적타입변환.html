@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터타입</title>
+</head>
+<body>
+    <h2>암시적 타입 변환</h2>
+    <script>
+        'use strict' //엄격모드
+        const a =  10 + "문자열"; // 문자열 형
+        console.log(a);
+        console.log(typeof(a));
+        
+        const b = "3" * "5";
+        console.log(b);
+        console.log(typeof(b)); //숫자형
+
+        const c = 10 - "문자열";
+        console.log(c);
+        console.log(typeof(c)); //숫자형
+
+        const d = "10" - 20;
+        console.log(d)
+        console.log(typeof(d)) //숫자형
+    </script>
+</body>
+</html>
