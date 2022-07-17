@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>논리연산자</h2>
+    <script>
+        'use strict';//엄격모드
+        let num1 = 10;
+        let num2 = 5;
+        
+        //조건식 생성
+        let result1 = num1 == num2; // false
+        let result2 = num1 >= num2; // true
+        
+        //and(&&) 두개의 조건 참일때  => 실행한다(false 값을 리턴)
+        console.log(`result1 && result2 : ${result1 && result2}`);
+
+        //or(||) 두개의 조건중 하나라도 참일때  => 실행한다(true 값을 리턴)
+        console.log(`result1 || result2 : ${result1 || result2}`);
+
+        //not(!) 참일때 거짓으로 거짓일때 참으로  => 실행한다(true 값을 리턴)
+        console.log(`!result1 : ${!result1}`)
+
+
+
+        
+
+
+    </script>
+</body>
+</html>

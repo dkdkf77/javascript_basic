@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>while문 - 2</h2>
+    <script>
+        'use strict'
+        let i  = 1;
+        let sum = 0;
+        let sum2 = 0;
+
+        while(i <= 100){
+            // document.write(`${i}번째 반복 : 안녕하세요 자바스크립트 <br/>`)
+            //document.write(`<p>${i}</p>`)
+            //sum = sum + i
+            sum += i //합만 구한다
+            if(i%2 == 0){
+                sum2 += i
+            }
+            ++i;
+             //조건식에 들어가는 변수에 증가치
+
+            
+        }
+
+        document.write(`1부터 100까지의 총합 : ${sum} <br>`)
+        document.write(`짝수의 총합 : ${sum2} <br>`)
+        console.log(`1부터 100까지의 총합 : ${sum}`)
+    </script>
+</body>
+</html>
