@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            
+
+
+            $('.big').click(function(){
+                $('.box').slideDown(1000);
+            })
+            
+            $('.slideup').click(function(){
+                $('.box').slideUp(500);
+            })
+           
+           
+            
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="크고 불투명하게 하기" class="big">
+    <input type="button" value="작아지면서 불투명하게 하기" class="small">
+    <input type="button" value="왼쪽으로 이동하기" class="left">
+    <input type="button" value="오른쪽으로 이동하기" class="right">
+    
+
+    <div class="box" style="width: 150px; height:150px; border:1px solid #ccc; background-color: red; position: absolute; top: 100px; left: 100px;">box</div>
+</body>
+</html>

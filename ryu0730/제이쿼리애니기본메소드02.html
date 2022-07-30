@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            $('.box').hide();
+
+
+            $('.fadein').click(function(){
+                $('.box').fadeIn(1000);
+            })
+            
+            $('.fadeout').click(function(){
+                $('.box').fadeOut(500);
+            })
+            $('.fadeto').click(function(){
+                //$('box').fadeTo(시간, 투명도(0~1));
+                $('.box').fadeTo(500,0.5);
+            })
+           
+            
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="fadein" class="fadein">
+    <input type="button" value="fadeout" class="fadeout">
+    <input type="button" value="fadeto" class="fadeto">
+
+    <div class="box" style="width: 150px; height:150px; border:1px solid #ccc; background-color: red;">box</div>
+</body>
+</html>

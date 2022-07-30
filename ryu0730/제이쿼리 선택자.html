@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/script.js"></script>
+    <!-- <style>
+        ul,li {
+            list-style: none;
+            float: left;
+            margin-right: 100px;
+        }
+    </style> -->
+</head>
+<body>
+    <script>
+        //$(이벤트가 일어나는 대상).이벤트(fucntion(){
+        //  $(동작할 대상).메소드()   
+        //});
+
+        // 제이쿼리에서 대상을 선택하는 방법 == 선택자
+        $(document).ready(function(){
+           // $('ul').css({
+           // 'backgroundColor': 'red',
+           // 'height': '100px' 태그 선택자
+
+           //$('#menu a').css({fontSize:'50px',color:'red'}); 아이디선택자
+
+           $('.list02').css({backgroundColor:'red'})
+           $('.list02 a').css({color:'#fff'})
+        });
+        
+        
+
+    </script>
+    
+    <ul id="menu">
+        <li><a href="#">menu1</a></li>
+        <li class="list02"><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+</body>
+</html>

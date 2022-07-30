@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+           $('.big').click(function(){
+            $('.box').animate({width:'500px',height:'200px', opacity:0.5},1000);
+           })
+           
+           
+            
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="big" class="big">
+    <input type="button" value="slideup" class="slideup">
+    
+
+    <div class="box" style="width: 150px; height:150px; border:1px solid #ccc; background-color: red; position: absolute; top:100px; left: 100px;">box</div>
+</body>
+</html>

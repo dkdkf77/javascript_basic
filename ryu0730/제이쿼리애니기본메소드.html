@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            $('.box').hide();
+
+
+            $('.show').click(function(){
+                $('.box').show(1000);
+            })
+            
+            $('.hide').click(function(){
+                $('.box').hide(500);
+            })
+            $('.toggle').click(function(){
+                $('.box').toggle(500);
+            })
+            
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="show" class="show">
+    <input type="button" value="hide" class="hide">
+    <input type="button" value="toggle" class="toggle">
+
+    <div class="box" style="width: 150px; height:150px; border:1px solid #ccc;">box</div>
+</body>
+</html>

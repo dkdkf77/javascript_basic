@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/script.js"></script>
+    <style>
+        p {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //$(이벤트가 일어나는 대상).이벤트(fucntion(){
+        //  $(동작할 대상).메소드()   
+        //});
+
+        // 제이쿼리에서 대상을 선택하는 방법 == 선택자
+        
+        $(document).ready(function(){
+        // 대상을 한번 눌렀을때 실행
+        //    $('p').click(function(){
+        //     $('p').css({backgroundColor:'red'});
+        //    });
+
+        // 대상을 더블클릭했을때 실행
+        // $('p').dblclick(function(){
+        //     $(this).css({backgroundColor:'red'});
+        // })
+        // 마우스를 버튼위에 올렸을때 다시 나갈때 
+        // $('p').hover({
+        //     function(){//대상에 마우스를 올렸을때
+        //         $(this).css({background:'red'});
+        //     },
+        //     function(){//대상에서 마우스가 나갈때
+        //         $(this).css({background:'#fff'});
+        //     }
+
+
+        // });
+            // $('p').mouseenter(function(){//마우스가 대상의영역에 들어갔을대
+            //         $(this).css({background:'red'});
+            //     }
+            // )
+            // $('p').mouseleave(function(){//마우스가 대상의영역에서 나갔을때
+            //         $(this).css({background:'blue'});
+            //     });
+
+            // $(document).mousemove(function(e){
+            //     //$('span').css({속성:'속성값',속성:'속성값'});
+            //     //대상에게 스타일속성적용
+
+            //     //$('span').text('글자') => 대상에 글자를 입력
+            //     //$('span').html('<a href="">menu</a>') => 대상에 태그를 입력
+
+            //     $('span').text(e.pageX + "X전달완료" + e.pageY + "Y전달완료");
+
+            // });
+            // $('p').mousedown(function(){
+            //     $(this).after('<p style="color:green">마우스다운일때</p>');
+            // });
+            // $('p').mouseup(function(){
+            //     $(this).after('<p style="color:red">마우스업일때</p>');
+            // });
+        
+        
+        });
+        
+        
+    </script>
+    
+    <p>마우스를 좌표 <span></span></p>
+</body>
+</html>
