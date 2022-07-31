@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #010101;
+        }
+        nav{
+            width:  100px;
+            border: 1px solid #000;
+            margin: 50px;
+        }
+        nav .main{
+            width: 100%;
+            border-bottom: 1px solid #000;
+        }
+        nav .main > li{
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+            border-bottom: 1px solid #000;
+        }
+
+        nav .main > li.on{
+            background-color: red;
+        }
+
+        nav .main > li:last-child{
+            border-bottom: none;
+        }
+
+        
+        nav a {
+            display: block;
+        }
+        nav a.on{
+            background-color: red;
+            transition: all .5s;
+        }
+
+        nav .main > li > a{
+            background-color: royalblue;
+        }
+
+        
+        nav .sub {
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        nav .sub > li {
+            border-bottom: 1px dotted #ccc;
+            width: 100px;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.sub').hide();
+            
+            // $('.main_btn').click(function(){
+            //     $('.sub').each(function(){
+            //         if($(this).css('display') == 'block'){
+            //             $('.sub').hide();
+            //         }
+            //     })
+            //     $(this).next('.sub').slideDown(1000);
+            // });
+            $('.main > li').hover(
+                
+                function(){
+                    $(this).find('.sub').fadeIn();
+                    $(this).find('a').addClass('on');
+                },
+                function(){
+                    $(this).find('.sub').fadeOut();
+                    $(this).find('a').removeClass('on');
+                }
+
+                
+            )
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <ul class="main">
+            <li><a href="#" class="main_btn">main1</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main2</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main3</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main4</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main5</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub1</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

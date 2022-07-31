@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #010101;
+        }
+        nav{
+            width:  500px;
+            height: 30px;
+            border: 1px solid #000;
+            margin: 50px;
+        }
+        nav .main > li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-right: 1px solid #000;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        nav .main > li:last-child{
+            border-right: none;
+        }
+        nav a {
+            display: block;
+        }
+
+        nav .sub {
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        nav .sub > li {
+            border-bottom: 1px dotted #ccc;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            /*
+            //초기값으로 숨김
+            $('.sub').hide(); //$('.sub').css({display:'none'}); //== 현재 hide랑 똑같음
+           // $('.sub').show(); //$('.sub').css({display:'block'}); //== 현재 show랑 똑같음
+            $('.main_btn').click(function(){
+                //$('.sub').show(); // 모두 불필요하게 숨김을 함
+                //$('.sub')를 순서대로 처리 하는 방법
+                $('.sub').each(function(){
+                    if($(this).css('display') == 'block'){
+                        $('.sub').hide();
+                    }
+                })
+                
+               
+                // $(this).next('.sub').show();
+                // $(this).next('.sub').slideDown();
+                $(this).next('.sub').fadeIn(500);
+            })
+            */
+
+            $('.main > li').hover(
+                function(){
+                    // $(this).find('.sub').show();
+                    // $(this).find('.sub').slideDown();
+                    $(this).find('.sub').fadeIn();
+                }, //대상에 마우스를 올렸을때
+                function(){
+                    $(this).find('.sub').slideUp();
+                   
+                }  // 대상에서 마우스를 올렸다가 빠져나왔을때
+               
+            )
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <script>
+
+    </script>
+    <nav>
+        <ul class="main">
+            <li><a href="#" class="main_btn">main1</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                    <li><a href="#">sub4</a></li>
+                    <li><a href="#">sub5</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main2</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                    <li><a href="#">sub4</a></li>
+                    <li><a href="#">sub5</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main3</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                    <li><a href="#">sub4</a></li>
+                    <li><a href="#">sub5</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main4</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                    <li><a href="#">sub4</a></li>
+                    <li><a href="#">sub5</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="main_btn">main5</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                    <li><a href="#">sub4</a></li>
+                    <li><a href="#">sub5</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
