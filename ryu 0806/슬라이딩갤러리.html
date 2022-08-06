@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+
+        .gallery{
+            margin: 100px;
+            width: 400px;
+            height: 300px;
+            border: 2px solid #000;
+        }
+        .view{
+            width: 400px;
+            height: 270px;
+            position: relative;
+            background-color: blueviolet;
+            /* overflow: hidden;   */
+        }
+        
+        .view ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1600px;
+            height: 270px;
+        }
+        .view ul li {
+            float: left;
+            width: 400px;
+            height: 270px;
+            background-color: aqua;
+                 
+        }
+
+        .view ul li:nth-child(1){
+            background-color: aquamarine;
+        }
+        .view ul li:nth-child(2){
+            background-color: bisque;
+        }
+        .view ul li:nth-child(3){
+            background-color: brown;
+        }
+        .view ul li:nth-child(4){
+            background-color: chocolate;
+        }
+
+        .btns { 
+            margin-top: 8px;
+        }
+        .btns li{
+            cursor: pointer;
+            float: left;
+            width: 15px;
+            height: 15px;
+            border: 1px solid #000;
+            font-size: 8px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <div class="view">
+            <ul>
+                <li>
+                    <h3>img1</h3>
+                </li>
+                <li>
+                    <h3>img2</h3>
+                </li>
+                <li>
+                    <h3>img3</h3>
+                </li>
+                <li>
+                    <h3>img4</h3>
+                </li>
+            </ul>
+        </div>
+        <ul class="btns">
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+            <li>04</li>
+        </ul>
+        <button class="left_btn">
+            left
+        </button>
+        <button class="right_btn">
+            right
+        </button>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var n= 0; // 인덱스값을 연산하기 위한 변수
+            var current = 0; //.view > ul 에서 현재 보이는 li의 인덱스 값 
+            $('.btns li').click(function(){
+                var n = $(this).index(); // 0,1,2,3
+                gallery(n);
+            })
+
+            $('.left_btn').click(function(){
+                if(current > 0){ // 현재 보이는 li의 인덱스값 비교, 감소를 위해서 0보다 큰값
+                    current --;
+                    gallery(current)
+                }
+            })
+            $('.right_btn').click(function(){
+                if(current < 3){ //  현재 보이는 li의 인덱스값 비교, 플라스를 위해서 3보다 작은값 일때 실행
+                    current ++;
+                    gallery(current)
+                }
+            })
+            function gallery(n){
+                let move = n*(-400)+'px';
+                current = n;
+                $('.view ul').animate({left:move});
+            }
+            
+          
+            
+
+        });
+    </script>
+</body>
+</html>
