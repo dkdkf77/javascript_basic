@@ -50,8 +50,51 @@
         .main{
             background-color: aqua;
         }
-        .con1{background-color: brown;}
-        .con2{background-color: rgb(128, 85, 85);}
+        .con1{
+            background-color: brown;
+            position: relative;
+        }
+        .con1 .box{
+            width: 150px;
+            height: 150px;
+            border: 2px solid #fff;
+            position: absolute;
+            top: 200px;
+        }
+        .con1 .box1{
+
+            left: 300px;
+        }
+        .con1 .box2{
+            left: 625px;
+        }
+        .con1 .box3{
+            left: 1250px;
+        }
+        .con2{
+            background-color: rgb(128, 85, 85);
+            position: relative;
+        }
+        .con2 .box{
+            width: 150px;
+            height: 150px;
+            border: 2px solid #fff;
+            position: absolute;
+            top: 200px;
+        }
+        .con2 .box1{
+
+            opacity: 0;
+            left: 300px;
+        }
+        .con2 .box2{
+            opacity: 0;
+            left: 625px;
+        }
+        .con2 .box3{
+            opacity: 0;
+            left: 1250px;
+        }
         .con3{background-color: rgb(75, 22, 22);}
         .con4{background-color: rgb(255, 118, 118);}
        
@@ -88,7 +131,46 @@
                     }
                 })  // each문은 순환처리문  스크롤을 내리다 스크롤 탑 부분에 있으면 함수 실행
             })
-        })
+
+
+            // 스크롤 위치에 의한 애니메이션;
+            var scene01Num = 1; // 스크롤은 한쪽 방향만 먹힌다  상태값을 표시
+            $(window).scroll(function(){
+                var scrollTop = $(window).scrollTop();
+                
+                
+                if(scrollTop > 900 && scene01Num == 1){
+                    scene01Num = 0;
+                    $('.box1').delay(100).animate({opacity:1, top:'600px'},1000);
+                    $('.box2').delay(0).animate({opacity:1, top:'600px'},1000);
+                    $('.box3').delay(500).animate({opacity:1, top:'600px'},1000);
+                }else if(scrollTop < 400 && scene01Num == 0){
+                    scene01Num = 1;
+                    $('.box1').delay(100).animate({opacity:1, top:'200px'},1000);
+                    $('.box2').delay(0).animate({opacity:1, top:'200px'},1000);
+                    $('.box3').delay(500).animate({opacity:1, top:'200px'},1000);
+                }
+            })
+
+            var scene02Num = 1;
+
+            $(widnow).scroll(function(){
+                var scrollTop = $(window).scrollTop();
+
+                if(scrollTop > 1800 && scene02Num == 1){
+                    scene02Num = 0;
+                    $('.con2 .box1').delay(100).css({opacity:0}).animate({opacity:1, top:'600px'},1000);
+                    $('.con2 .box2').delay(200).css({opacity:0}).animate({opacity:1, top:'600px'},1000);
+                    $('.con2 .box3').delay(500).css({opacity:0}).animate({opacity:1, top:'600px'},1000);
+                }else if(scrollTop < 1700 && scene02Num == 0){
+                    scene02Num = 1;
+                    $('.con2 .box1').delay(100).css({opacity:1}).animate({opacity:0, top:'200px'},1000);
+                    $('.con2 .box2').delay(200).css({opacity:1}).animate({opacity:0, top:'200px'},1000);
+                    $('.con2 .box3').delay(500).css({opacity:1}).animate({opacity:0, top:'200px'},1000);
+
+                };
+            });
+        });
     </script>
 </head>
 <body>
@@ -106,8 +188,18 @@
         </header>
         <div class="contents">
             <section class="main"><h3>main</h3></section>
-            <section class="con1"><h3>con1</h3></section>
-            <section class="con2"><h3>con2</h3></section>
+            <section class="con1">
+                <h3>con1</h3>
+                <div class="box box1">box1</div>
+                <div class="box box2">box2</div>
+                <div class="box box3">box3</div>
+            </section>
+            <section class="con2">
+                <h3>con2</h3>
+                <div class="box box1">box1</div>
+                <div class="box box2">box2</div>
+                <div class="box box3">box3</div>
+            </section>
             <section class="con3"><h3>con3</h3></section>
             <section class="con4"><h3>con4</h3></section>
         </div>
