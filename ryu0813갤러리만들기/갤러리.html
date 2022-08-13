@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <script src="./js/jquary.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            border: 0;
+        }
+
+        #all {
+            margin: 100px auto;
+            width: 620px;
+            height: 290px;
+            border: 1px solid #ccc;
+        }
+
+        #all .menu {
+            width: 100px;
+            height: 280px;
+            float: left;
+        }
+
+        #all .menu img {
+            margin-bottom: 3px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #all .large_img {
+            width: 500px;
+            height: 280px;
+            margin-left: 110px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all">
+        <div class="menu">
+            <a href="./images/pic1.jpg"><img src="./images/th_pic1.jpg" alt="1"></a>
+            <em>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam voluptate quas quae expedita
+                temporibus quaerat consequuntur, placeat, doloribus vero perferendis ipsam voluptas molestias excepturi
+                ipsa nulla cupiditate rem! Illo, exercitationem?</em>
+            <a href="./images/pic2.jpg"><img src="./images/th_pic2.jpg" alt="2"></a>
+            <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat eveniet molestiae necessitatibus.
+                Ratione quasi rem, aliquid voluptates voluptatum porro corrupti ab molestiae aliquam vero veniam, ipsam
+                velit mollitia illo numquam.</em>
+            <a href="./images/pic3.jpg"><img src="./images/th_pic3.jpg" alt="3"></a>
+            <em>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur quae omnis magnam sint, debitis
+                modi voluptates unde aliquam dolorem repellat earum dolorum corporis mollitia laborum iure quisquam
+                magni accusantium soluta.
+                Nemo est laboriosam, eius reprehenderit commodi voluptatum deserunt, sit, quos quia numquam iste impedit
+                cum quidem voluptatem culpa temporibus id velit beatae illum architecto! Deserunt voluptatem facilis
+                magni? Nobis, reiciendis.</em>
+        </div>
+        <div class="large_img">
+            <img src="./images/pic1.jpg" alt="big1">
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.menu em').hide();
+            $('.menu > a').click(function (e) {
+                e.preventDefault();
+
+                var path = $(this).attr("href");
+                console.log(path);
+
+                if (path != $('.large_img img').attr('src')) {
+
+                    $('.large_img img').attr({
+                        src: path
+                    });
+                    $('.large_img img').css({
+                        opacity: 0
+                    }).stop().animate({
+                        opacity: 1
+                    }, 1000)
+
+                }
+
+                // stop()은 두번 누르면 동작되는 것을 방지
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>
