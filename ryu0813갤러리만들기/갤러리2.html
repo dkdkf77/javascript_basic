@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <script src="./js/jquary.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img{
+            border: 0;
+        }
+        #all{
+            overflow: hidden;
+            margin: 100px auto;
+            width: 620px;
+            height: 290px;
+            border: 1px solid #ccc;
+        }
+        #all .menu {
+            width: 100px;
+            height: 280px;
+            float: left;
+        }
+        #all .menu  img {
+            margin-bottom: 3px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        #all .large_img {
+            width: 500px;
+            height: 280px;
+            margin-left: 110px;
+            border: 1px solid #ccc;
+        }
+
+        /* 추가될 태그의 선택자를 설정하고 속성을 선언 제이쿼리는 속성값의 초기값은 맞춰주지 않는다 그러므로 css를 먼저 설정해야 한다 */
+        
+        #caption {
+            position: relative;
+            padding: 10px;
+            font-size: 15px;
+            background-color: rgba(255,255,255,0.3);
+        }
+
+    </style>
+</head>
+<body>
+     <div id="all">
+        <div class="menu">
+            <a href="images/pic1.jpg" title="image1"><img src="images/th_pic1.jpg" /></a>
+
+            <em>Lorem Ipsum is simply dummy text of the pdrinting and typesetting industry.</em>
+
+            <a href="images/pic2.jpg" title="image2"><img src="images/th_pic2.jpg" /></a>
+
+            <em>Lorem Ipsum is simply dummy tely dummy thely dummy tegxt of thely try. Sed facilisis, sem a luctus bibendum, dui risus pellentesque velit, quis tempor magna sem vel justo. Etiam eget ipsum ante.</em>
+
+            <a href="images/pic3.jpg" title="image3"><img src="images/th_pic3.jpg" /></a>
+
+            <em>Lorem Ipsum is simply dummy.</em>
+        </div>
+        <div class="large_img">
+            <img src="./images/pic1.jpg" alt="big1">
+        </div>
+     </div>
+     <script>
+        $(document).ready(function(){
+
+            $('.menu em').hide();
+
+            $('.menu a').click(function(e){
+                
+                e.preventDefault();
+
+                if($('#caption')){ //조건문에 대상을 입력 했을때는 대상이 참인지 거짓인지를 구분
+                    $('#caption').remove();
+                }
+                var path = $(this).attr("href");
+                console.log(path);
+
+                // path 에 menu a 태그 href 부과 
+
+
+                if(path != $('.large_img img').attr('src')){
+                    // 만약 menu a href 와 large_img img 의 src가 같지 않으면 밑에 것을 실행 그게 아니면 실행 안함 
+                $('.large_img img').attr({src:path});
+                $('.large_img img').css({opacity:0}).stop().animate({opacity:1}, 1000);
+                
+                }
+
+                // stop()은 두번 누르면 동작되는 것을 방지
+
+
+                  //추가될 태그에 입력할 글자 
+            var msg = $(this).next('em').text();
+
+                $('.large_img').append('<div id="caption"></div>');
+                $('.large_img #caption').text(msg);
+
+                var posy = $('.large_img #caption').height() + 27;
+                $('.large_img #caption').animate({top:-posy}, 1000);
+
+                // large_img 쪽에 없는 태그를 생성
+                // append, preappend는 앞 뒤에 태그를 추가
+                // 중복으로 문자열을 사용 하였을때는 첫째는'' , 안에는 "" 사용
+            })
+            
+
+          
+        })
+     </script>
+</body>
+</html>
