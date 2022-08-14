@@ -77,6 +77,7 @@
                             tempImg);
                         // img , <img src='img/site.jpg' width='100px' height:'100px'/>
                         // src = '" + tempTitle +' 은 뭔지 강사님께 물어 보자
+                        // + = 변수를 결합한다는 의미
                     }
 
 
@@ -91,13 +92,13 @@
                         $('#tip').css("width", "100px"); // 이것을 주석 처리 하니깐 css가 없어 진다
 
                     } else {
-                        $('#tip').text(tempTitle); //
+                        $('#tip').text(tempTitle);
                     }
 
                     //추가된 tip의 위치값 설정
 
                     var pageX = $(this).offset().left - 20; // offset은 선택한 요소의 좌표를 가져오거나 이동
-                    var pageY = $(this).offset().top - $("#tip").innerHeight();
+                    var pageY = $(this).offset().top - $("#tip").innerHeight(); // innerHeight는 #tip(셀렉터)에서 height를 불러오는데 tip에 height가 속성값이 없으면 글자 크기 만큼 자동으로 설정 
 
                     //툴팁에 효과
                     $("#tip").css({
