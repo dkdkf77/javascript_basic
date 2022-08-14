@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>변수의 범위</h2>
+    <script>
+        'use strict';
+        //var 를 쓰지 않고 const 와 let을 사용해야 하는 이유
+        var num1 = 10; //전역변수
+        
+        function func1(){
+            console.log(num1) // 10 출력
+            num1 = 20; // 전역변수의 값을 재할당  10 -> 20  , var 
+        }
+
+        func1();
+        console.log(num1); //20
+
+        var num2 = 30; //  전역변수
+        
+        function func2 (){
+            var num2 = 40; // 지역변수
+            console.log(`num2:${num2}`)
+        }
+        func2()//함수 호출
+        console.log(num2); //30;
+
+        var num3 = 50; // 전역변수
+
+        if(num3 == 50){ //true
+            num3 = 1000; // 전역변수 num3의 값을 재대입 : 50 -> 1000
+            console.log(`num3:${num3}`);
+        }
+
+        console.log(num3);
+
+        var num4 = 50;
+        if(num4 == 50){
+            var num4 = 100
+            console.log(`num4:${num4}`);
+        }
+
+        console.log(num4); // 이것 때문에 var를 사용 안하는 이유 var의 버그 => 원래는 전역변수 50이 나와야 하는데 충돌이 나서 지역변수의 100이 출력된다
+
+        //var버그 전역변수를 선언하고 함수안에 함수밖에서 사용하면 해당값이 출력이 됩니다
+        //근데 전역변수를 선언하고 값을 처리하고 지역변수에서 다시 변수를 선언하고
+        //함수내에서 다시 변수를 선언했기때문에 함수내에서 지역변수값이 출력이 되는데
+        //갑지가 함수밖에 전역변수도 지역변수값을 출력하는 경우가 생깁니다 이때를 var버그라고 함
+
+        let num5 = 50;
+        if(num5 == 50){
+            let num5 = 100;
+            console.log(`num5 : ${num5}`); // 100 출력
+        }
+        console.log(num5); // 50 출력 
+    </script>
+</body>
+</html>

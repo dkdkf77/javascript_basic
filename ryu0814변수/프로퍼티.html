@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <h2>객체</h2>
+    <script>
+        'use strict';
+
+        // const 로 객체를 지정
+
+        const dog = {
+            name: 'mini',
+            age : 10,
+            color : 'red',
+            weight : 100,
+            memberId : function(){
+                return 'korea' + this.name;
+            }
+        } // dog라는 객체 선언, 함수에는 3개 알아야 하는데 문자열, 숫자형, 참/거짓
+
+        console.log(dog.name); 
+        console.log(dog.age);
+        console.log(dog.color);
+        console.log(dog.weight);
+        console.log(dog.memberId); // 함수 
+        
+
+    </script>
+</body>
+</html>
