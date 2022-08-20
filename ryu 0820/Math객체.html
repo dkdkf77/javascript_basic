@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math객체</title>
+    <script src="./js/jquary.js"></script>
+</head>
+<body>
+    <h2>Math 객체</h2>
+    <script>
+        'use strict'
+        //null = 변수는 선언 되었지만 빈값
+        //undefine = 아예 없음
+        
+        console.log(Math.min()); // 최대값
+        console.log(Math.max()); // 최소값
+        console.log(Math.min(1,10,-10,1000,0)); //-10
+        console.log(Math.min(1,10,'-10',1000,0)); // 문자열이든 숫자형이든 다 인식한다
+        console.log(Math.min(1,10,'-10','천',0)); // NaN = 컴퓨터가 인식을 못한다 , 단순 글자는 인정안한다
+        console.log(Math.max(1,10,'-10',1000,0)); //1000
+
+        console.log('-----------------------------------------------')
+        //반올림
+        console.log(Math.round(10.49)); // 10
+        console.log(Math.round(10.5)); // 11
+        console.log(Math.round(-10.5)); // -10  0이라는 값을 기준을 했을때를 반올림 하는데 0에 가깝게 간다
+        console.log(Math.round(-10.51)); // -10  0이라는 값을 기준을 했을때를 반올림 하는데 0에 가깝게 간다
+
+
+
+
+        console.log('-----------------------------------------------')
+        //내림
+        console.log(Math.floor(10.49)); //10
+        console.log(Math.floor(10.5)); //10
+        console.log(Math.floor(-10.5)); //-11
+        console.log(Math.floor(-10.51)); //-11
+
+        console.log('-----------------------------------------------')
+        //올림  반올림과 다른게 값이 어떤것이던 무조껀 올림
+        console.log(Math.ceil(10.49));  //11
+        console.log(Math.ceil(10.5));  //11
+        console.log(Math.ceil(-10.5)); //-10
+        console.log(Math.ceil(-10.51)); //-10
+
+        console.log('-----------------------------------------------')
+        console.log(Math.random()) // 0~ 0.999999~   까지 랜덤으로 바뀐다
+        console.log(Math.random()*10) // 0~ 9.999999~   까지 랜덤으로 바뀐다
+        console.log((Math.random()*10)+1) // 0~ 10.999999~   까지 랜덤으로 바뀐다
+        console.log(Math.floor(Math.random()*10)) // 0~ 9.9999~ 사이 까지 랜덤으로 바뀐다
+        console.log(Math.floor(Math.random()*10)+1) // 범위 0~9 -> 범위 1~10
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 추가</title>
+</head>
+<body>
+    <h2>노드추가</h2>
+
+    <p id="item1" style="background-color: red;">Javascript</p>
+    <p id="item2" style="background-color: blue;">php</p>
+    <hr/>
+    <div id="list">
+        
+        <p id="js">node.js</p>
+        <p>react</p>
+
+    </div>
+    <hr>
+    <p id="text1">지금 시간은 오전 10시 30분입니다.</p>
+
+    <button onclick="appendNode()">노드 추가1</button>
+    <button onclick="insertNode()">노드 추가2</button>
+    <button onclick="appendText()">텍스트 추가</button>
+
+
+    <script>
+        'use strict';
+        const appendNode = function(){
+            const parent = document.getElementById('list'); 
+            // 노드 추가할 위치
+            const newItem = document.getElementById('item1');
+            // 추가할 위치에 입력될 요소
+            parent.appendChild(newItem);
+            // appendChild 지정된 부모에 자식요소들중에 마지막에 노드 추가함
+
+        }
+
+        const insertNode =  function(){
+            const parent = document.getElementById('list'); // 추가할 위치
+            const js = document.getElementById('js');
+            const newItem = document.getElementById('item2');
+
+            parent.insertBefore(newItem,js);
+            // const 는 재할당이 안되지만 함수 안에서 이벤트가 다르면 충돌나지 않는다
+            // insertBefore(추가될 노드, 추가될 노드에 위치);
+        }
+
+
+        const appendText = function(){
+            const text = document.getElementById('text1').firstChild;
+
+            text.insertData(7, "아주 외로운 늑대 ");
+            //insertData(글자가 추가될 위치, "입력할 텍스트")
+
+
+
+        } 
+    </script>
+</body>
+</html>

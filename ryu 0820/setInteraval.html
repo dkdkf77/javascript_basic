@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+    <script src="./js/jquary.js"></script>
+    <style>
+        body{
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h2>setInterval</h2>
+    <script>
+        'use strict'
+
+        const hi = function(){
+            console.log('안녕하세요. JavaScript');
+        }
+
+        const clearInter = function(){
+            console.log('hi 함수가 중지되었습니다');
+            clearInterval(si);
+        }
+
+        const setInter = function(){
+            console.log('hi 함수가 다시 실행됩니다');
+            setInterval(hi,2000)
+        }
+
+        const si = window.setInterval(hi, 2000); //2초 후에 hi함수를 실행
+
+        //clearTimeout(st)
+      
+        
+    </script>
+    <button onclick="setInter()">다시실행</button>
+    <button onclick="clearInter()">중지</button>
+</body>
+</html>
