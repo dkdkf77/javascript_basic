@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #222;
+        }
+        .container {
+            margin-top: 35px;
+        }
+        .ball{
+            position: absolute;
+            top: 120px;
+            left: 100px;
+            width: 60px;
+            height: 60px;
+            background-color: pink;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all .5s;
+        }
+        .effect{
+            transform: scale(2);
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function(){
+            const container = document.getElementsByClassName('container')[0];
+            const ball = container.children[0];
+
+            //대상노드.addEventListener('이벤트',실행함수);
+            ball.addEventListener('click',function(e){
+                e.target.classList.toggle('effect');
+
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="ball"></div>
+    </div>
+</body>
+</html>
