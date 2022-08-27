@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리 만들기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .container{
+            margin-top: 50px;
+            width: 440px;
+        }
+        .controller{
+            padding-top: 20px;
+        }
+        .controller li{
+            display: inline-block;
+            margin-left : 10px;
+        }
+       
+        .controller li a {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: yellowgreen;
+            border-radius: 10px;
+            transition: all .5s;
+        }
+        .controller li.on a{
+            width: 50px;
+            background-color: #000;
+        } 
+        .picture {
+            position: relative;
+            margin-top : 30px;
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            overflow: hidden;
+        }
+        .picture ul {
+            position: absolute;
+            width: 2400px;
+            height: 400px;
+            transition: all .5s;
+        }
+        .picture ul li {
+            float: left;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function(){
+            /*
+            // li 를 설정 하려면 부모도 다 선택해줘야 하고 반복문으로 돌려줘야한다
+            const container = document.getElementsByClassName('container')[0];
+            const controller = container.children[0];
+            const liList = controller.children; // 모두를 의미
+
+            for(let i = 0; i < liList.length; i++){// li 마우스이벤트 적용하기위한 반복1실행
+                liList[i].addEventListener('click',function(e){
+                    e.preventDefault(); //a 태그에 이벤트를 상실하는 메소드 선언
+                    for(let j = 0; j < liList.length; j++){//이전에 적용된 효과를 없애는 반복2실행
+                        liList[j].classList.remove('on');
+                    } //중복 반복문 
+                    e.currentTarget.classList.add('on') //효과적용하는데
+                    //target과 currenttarget의 차이는 
+                });
+            };
+            */
+
+
+
+
+            
+            const container = document.getElementsByClassName('container')[0];
+            const controller = container.children[0];
+            const liList = controller.children; // 모두를 의미
+            
+            const picture = document.getElementsByClassName('picture')[0];
+            const pictureUl = picture.children[0];
+            // const는 요소 값이 변화가 없는 곳 상수에 사용
+            let n = 0; // 초기 인덴스 값
+            let targetx = 0; // 이곳에 들어가는 값은 숫자라는 것을 선언
+
+            //console.log('확인');
+            for(let i = 0; i < liList.length; i++){// li 마우스이벤트 적용하기위한 반복1실행
+                liList[i].index = i; // 반복문으로 실행되는 노드의 인덱스값을 설정
+                console.log(i);
+                //console.log('확인');
+                liList[i].addEventListener('click',function(e){
+                    e.preventDefault(); //a 태그에 이벤트를 상실하는 메소드 선언
+
+                    n = e.currentTarget.index
+                    // picture ul 움직이는 공식선언;
+                    tragetx = n*400*(-1)
+                    
+                    pictureUl.style.left=tragetx + 'px'
+                    console.log(n);
+                    //console.log('확인');
+                    for(let j = 0; j < liList.length; j++){//이전에 적용된 효과를 없애는 반복2실행
+                        if(j == n){
+                            liList[j].classList.add('on');
+                        }else{
+                            liList[j].classList.remove('on');
+                        }
+                      
+                    } //중복 반복문 
+                    //효과적용하는데
+                    //target과 currenttarget의 차이는 
+                });
+            };
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <ul class="controller">
+            <li class="on"><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+        <div class="picture">
+            <ul>
+                <li><div style="width: 400px; height:400px; background-color: coral;"></div></li>
+                <li><div style="width: 400px; height:400px; background-color: rgb(185, 93, 60);"></div></li>
+                <li><div style="width: 400px; height:400px; background-color: rgb(134, 86, 68);"></div></li>
+                <li><div style="width: 400px; height:400px; background-color: rgb(39, 27, 22);"></div></li>
+                <li><div style="width: 400px; height:400px; background-color: rgb(75, 24, 5);"></div></li>
+                <li><div style="width: 400px; height:400px; background-color: rgb(252, 71, 6);"></div></li>
+
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>

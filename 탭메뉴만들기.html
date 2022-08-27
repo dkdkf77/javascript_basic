@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭메뉴 만들기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .container{
+            margin-top: 50px;
+            width: 440px;
+        }
+        nav ul {
+            margin: 16px 0 16px 0;
+            padding: 8px 0px;
+            box-sizing: border-box;
+            text-align: left;
+            font-weight: 400;
+            border-bottom: 1px solid #d4d4d4;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            margin-right: 0;
+            padding: 10px 20px 10px;
+            font-size: .87rem;
+            background-color: #f1f1f1;
+            color: #333;
+            border: 1px solid #d4d4d4;
+            box-sizing: border-box;
+            border-bottom: none;
+            transition: all .5s;
+        }
+        nav ul li.on a {
+            background-color: #8ac007;
+            color: #fff;
+            border-color: #8ac007;
+        }
+        .description{
+            display: none;
+            margin: 30px 0;
+            padding: 30px 0;
+            font-size: 12px;
+            color: #333;
+            border-bottom: 4px solid #d4d4d4;
+        }
+        .description.active {
+            display: block;
+        }
+        
+    </style>
+    <script>
+        window.addEventListener('load', function(){
+           let n = 0; //navLi의 초기인덱스값 선언
+           const container = document.getElementsByClassName('container')[0];
+           let nav;
+           let infoArray = [];
+           
+           
+           console.log(infoArray)
+
+           // container를 기준으로 nav를 객체로 지정하고 나머지 div도 객체로 지정하지만 여기에서 배열을 사용
+           for(let i = 0; i < container.children.length; i++){
+                if(container.children[i].tagName == 'NAV'){
+                    nav = container.children[i]
+                }else{
+                    infoArray.push(container.children[i])
+                };
+           };
+           const navLi = nav.children[0].children;
+           //console.log(navLi);
+           navLi[n].classList.add('on');
+           infoArray[n].classList.add('active');
+
+           for(i = 0;  i < navLi.length; i++){
+            //navLi에 인덱스값을 선언
+                navLi[i].index = i;
+                console.log(navLi[i]);
+                console.log('확인');
+                navLi[i].addEventListener('click', function(e){
+                    e.preventDefault();
+                    n = e.currentTarget.index;
+                    //console.log("n : " +n);
+                    // 이벤트가 적용된 navLi에 클래스 적용하기 위한 반복실행
+                    for(let j = 0; j < navLi.length; j++){
+                        if(j == n){
+                            navLi[j].classList.add('on');
+                            infoArray[j].classList.add('active');
+                        }else{
+                            navLi[j].classList.remove('on');
+                            infoArray[j].classList.remove('active');
+                        }
+                    }
+                });
+           };
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">Javascript</a></li>
+                <li><a href="#">Jquery</a></li>
+            </ul>
+        </nav>
+        <div class="description HTML">HTML</div>
+        <div class="description CSS">CSS</div>
+        <div class="description Javascript">Javascript</div>
+        <div class="description Jquery">Jquery</div>
+    </div>
+</body>
+</html>

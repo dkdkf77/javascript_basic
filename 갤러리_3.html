@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리 만들기_3</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .container{
+            margin-top: 50px;
+            width: 440px;
+        }
+
+        .picture {
+            margin-top: 30px;
+            width: 1220px;
+            height: 200px;
+            overflow: hidden;
+        }
+        .picture ul {
+            float: left;
+            margin-left: -1200px;
+            width: 1200px;
+            transition: margin-left 0.8s;
+        }
+        .picture ul.on {
+            margin-left: 0;
+        }
+        .picture ul li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            opacity: .2;
+            transition: all .5s;
+        }
+        .picture ul li.add{
+          opacity: 1;
+        }
+        .handle {
+            float: left;
+            display: block;
+            width: 20px;
+            background-color: #000;
+            height: 200px;
+            text-indent: -9999px;
+            cursor: pointer;
+            border-radius: 0 10px 10px 0;
+        }
+
+        
+        
+        
+    </style>
+    <script>
+        window.addEventListener('load', function(){
+          const picture = document.getElementsByClassName('picture')[0]
+          let pictureUl;  
+          let handle;
+            
+
+
+          for(let i = 0; i < picture.children.length; i++){
+            if(picture.children[i].tagName == 'UL'){
+               pictureUl = picture.children[i];
+            }else if(picture.children[i].tagName == 'A'){
+                handle = picture.children[i];
+            }
+          }
+          console.log(pictureUl)
+          console.log(handle)
+
+          handle.addEventListener('click', function(e){
+            e.preventDefault();
+            pictureUl.classList.toggle('on');
+            
+          })
+          const pictureLi = pictureUl.children; 
+            for(i = 0; i < pictureLi.length; i++){
+                pictureLi[i].index = i;
+                pictureLi[i].addEventListener('mouseover', function(e){
+                   
+                    n = e.currentTarget.index;
+                    for(let j= 0; j <pictureLi.length; j++){
+                        if(j==n){
+                            pictureLi[j].classList.add('add')
+                        }else{
+                            pictureLi[j].classList.remove('add')
+                        }
+                    }
+                    
+                })
+            }
+          
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+       <div class="picture">
+            <ul>
+                <li>
+                    <div style="width: 200px; height: 200px; background-color:aquamarine ">
+                        <h3>1</h3>
+                    </div>
+                </li>
+                <li>
+                    <div style="width: 200px; height: 200px; background-color:rgb(41, 61, 54) ">
+                        <h3>2</h3>
+                    </div>
+                </li>
+                <li>
+                    <div style="width: 200px; height: 200px; background-color:rgb(101, 131, 121) ">
+                        <h3>3</h3>
+                    </div>
+                </li>
+                <li>
+                    <div style="width: 200px; height: 200px; background-color:rgb(5, 56, 39) ">
+                        <h3>4</h3>
+                    </div>
+                </li>
+                <li>
+                    <div style="width: 200px; height: 200px; background-color:rgb(71, 97, 88) ">
+                        <h3>5</h3>
+                    </div>
+                </li>
+                <li>
+                    <div style="width: 200px; height: 200px; background-color:rgb(115, 202, 173) ">
+                        <h3>6</h3>
+                    </div>
+                </li>
+            </ul>
+            <a href="#" class="handle">click</a>
+       </div>
+    </div>
+</body>
+</html>
