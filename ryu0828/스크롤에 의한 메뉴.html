@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤에 의한 애니메이션</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #222;
+            font-size: 18px;
+        }
+
+        #gnb {
+            position: fixed;
+            right: 50px;
+            top: 50%;
+            margin-top: -90px;
+            width: 15px;
+            height: 180px;
+        }
+
+        #gnb li {
+            margin-top: 16px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #000;
+            border-radius: 50px;
+            background-color: transparent;
+        }
+        #gnb li:first-child{
+            margin-top: 0;
+        }
+        #gnb li.active {
+            background-color: #000;
+        }
+        #gnb li a{
+            cursor: pointer;
+            display: block;
+            width: 16px;
+            height: 16px;
+            text-indent: -9999px;
+        }
+        section{
+            border-bottom: 3px solid #000;
+            /* height: 100vh; */
+        }
+
+        
+    </style>
+    <script>
+        window.addEventListener('load',function(){
+            let h; //윈도우의 높이에 관련된 변수
+            let n = 0; //메뉴의 인덱스
+            let targety =0; // 상단 목표 위치에 관련된 변수  
+            let offsety =0; // 상단 위치에 관련된 변수  
+            let timer =0; // 현재 움직임에 관련된 타이머 변수  
+            let moving = false; // 현재 움직임 유무에 관련된 변수  
+
+            const container = document.getElementsByClassName('container')[0];
+            const gnb = document.getElementById('gnb');
+
+            const menuLi = gnb.children[0].children;
+            let pageList = [];
+
+            //section 들을 배열로 입력
+
+            for(let i = 0; i< container.children.length; i++){
+                if(container.children[i].tagName == 'SECTION'){
+                    pageList.push(container.children[i]);
+                }
+            }
+            console.log(pageList);
+            // 초기값을 선언하는 함수
+            function init(){
+                h = window.innerHeight;
+                targety = n * h;
+
+                menuLi[n].classList.add('active')
+                for(i = 0; i< pageList.length; i++){
+                    pageList[i].style.height = h + 'px';
+                }
+            }   
+
+            init();
+
+            //특정 컨텐츠로 이동하기 함수 선언
+            setTimeout(function(){
+                n =2;
+                targety = n*h;
+                moveCategory(offsety, targety);
+
+            },150);
+
+            function moveCategory(offsety, targety){ // moveCategory(이전 y 위치, 다음 y 위치)
+                moving = true; // 현재 애니메이션을 실행하는 상태
+
+                setInterval(function(){
+                    
+                },1)
+            }
+
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header id="gnb">
+            <ul>
+                <li>
+                    <a href="#">menu1</a>
+                </li>
+                <li>
+                    <a href="#">menu2</a>
+                </li>
+                <li>
+                    <a href="#">menu3</a>
+                </li>
+                <li>
+                    <a href="#">menu4</a>
+                </li>
+                <li>
+                    <a href="#">menu5</a>
+                </li>
+                <li>
+                    <a href="#">menu6</a>
+                </li>
+            </ul>
+        </header>
+        <section id="index"><h2>index</h2></section>
+        <section id="page1"><h2>page1</h2></section>
+        <section id="page2"><h2>page2</h2></section>
+        <section id="page3"><h2>page3</h2></section>
+        <section id="page4"><h2>page4</h2></section>
+        <section id="page5"><h2>page5</h2></section>
+    </div>
+</body>
+</html>

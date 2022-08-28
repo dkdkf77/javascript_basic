@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비게이션 만들기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #222;
+            font-size: 18px;
+        }
+
+        .container{
+            margin-top: 40px;
+        }
+        nav{
+            display: inline-block;
+        }
+        nav > ul {
+            background-color: #fff;
+            height: 40px;
+            overflow: hidden;
+            transition: height .4s ease-out;
+        }
+
+        nav > ul.over {
+            height: 270px;
+        } 
+
+        nav > ul > li {
+            float: left;
+            width: 140px;
+            height: 40px;
+            text-align: center;
+            font-size: 15px;
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+            position: relative;
+        }
+        nav > ul > li:last-child{
+            border: 0;
+        }
+        nav > ul > li > a {
+            display: block;
+            width: 100%;
+            line-height: 40px;
+            background: #eaeaea;
+            color: #666;
+            transition: background 0.4s, color .7s;
+        }
+
+        nav > ul > li:hover >a,
+        nav > ul > li:focus >a,
+        nav > ul > li >a.over{
+            font-weight: 600;
+            background: #8ac007;
+            color: #fff;
+        }
+
+        nav .sub{
+            position: absolute;
+            top: 40px;
+            left: 0;
+            height: 0px;
+            width: 100%;
+        }
+
+        nav .sub.on{
+            opacity: 1;
+            height: 250px;
+        }
+
+        nav .sub li {
+            border-bottom: 1px solid #eaeaea;
+           
+        }
+
+        
+        nav .sub a {
+            display: block;
+            padding: 10px;
+            color: #666;
+            background: #fff;
+        }
+
+        nav .sub a:hover, nav .sub li a:focus{
+            background: #f8f8f8;
+            
+        }
+    </style>
+    <script>
+        window.addEventListener('load',function(){
+           const nav = document.getElementById('nav');
+           const fullDown = nav.children[0]; //nav > ul
+           const fullDownLi = fullDown.children; // nav > ul > li들
+
+           console.log(fullDownLi)
+
+           for(let i = 0; i< fullDownLi.length; i++){
+            // fullDownLi[i].index = i  // nav > ul > li 인덱스값을 선언
+
+            fullDownLi[i].addEventListener('mouseenter', function(){
+                fullDown.classList.add('over')
+            })
+            fullDownLi[i].addEventListener('mouseleave', function(){
+                fullDown.classList.remove('over')
+            })
+
+            const fulldown1A = fullDownLi[i].children[0]; //nav > ul > li > a
+            const fulldow2Ul = fullDownLi[1].children[1]; // nav > ul > li > ul = .sub
+            const fulldow2Li = fulldow2Ul.children;  // nav > ul > li > ul > li
+
+            console.log(fulldow2Li)
+            fulldown1A.addEventListener('focusin',function(e){
+                e.target.classList.add('over');
+               
+            });
+
+            fulldown1A.addEventListener('focusout',function(e){
+                e.target.classList.remove('over');
+               
+            });
+            
+           };
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="nav">
+            <ul>
+                <li><a href="#">main1</a>
+                    <ul class="sub">
+                        <li><a href="#">sub1</a></li>
+                        <li><a href="#">sub2</a></li>
+                        <li><a href="#">sub3</a></li>
+                        <li><a href="#">sub4</a></li>
+                        <li><a href="#">sub5</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">main2</a>
+                    <ul class="sub">
+                        <li><a href="#">sub1</a></li>
+                        <li><a href="#">sub2</a></li>
+                        <li><a href="#">sub3</a></li>
+                        <li><a href="#">sub4</a></li>
+                        <li><a href="#">sub5</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">main3</a>
+                    <ul class="sub">
+                        <li><a href="#">sub1</a></li>
+                        <li><a href="#">sub2</a></li>
+                        <li><a href="#">sub3</a></li>
+                        <li><a href="#">sub4</a></li>
+                        <li><a href="#">sub5</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">main4</a>
+                    <ul class="sub">
+                        <li><a href="#">sub1</a></li>
+                        <li><a href="#">sub2</a></li>
+                        <li><a href="#">sub3</a></li>
+                        <li><a href="#">sub4</a></li>
+                        <li><a href="#">sub5</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
