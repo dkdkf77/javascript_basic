@@ -69,7 +69,7 @@
             const gnb = document.getElementById('gnb');
 
             const menuLi = gnb.children[0].children;
-            let pageList = [];
+            let pageList = []; // section 요소가 저장되는 저장공간(배열)
 
             //section 들을 배열로 입력
 
@@ -82,31 +82,94 @@
             // 초기값을 선언하는 함수
             function init(){
                 h = window.innerHeight;
-                targety = n * h;
+                targety = n*h;
 
-                menuLi[n].classList.add('active')
+                menuLi[n].classList.add('active'); // 버튼 주석처리
                 for(i = 0; i< pageList.length; i++){
-                    pageList[i].style.height = h + 'px';
+                    pageList[i].style.height = h + 'px';// section의 높이값 설정
                 }
             }   
 
-            init();
+            init(); // 초기값을 설정하는 함수를 호출
 
+            //화면의 사이즈가 바뀔때 마다 초기값 재설정 
+            window.addEventListener('resize', init);
+            //init() 함수 자체를 실행
+            //init 함수 자체에 함수를 넣을때는 이름만 넣으주면 된다
             //특정 컨텐츠로 이동하기 함수 선언
             setTimeout(function(){
                 n =2;
-                targety = n*h;
+                targety = n*h; // 버튼의 번호(2) 화면의 높이값 => 다음 y 위치(목적지)
                 moveCategory(offsety, targety);
 
             },150);
 
-            function moveCategory(offsety, targety){ // moveCategory(이전 y 위치, 다음 y 위치)
+            //버튼 클릭했을때 스크롤 움직임 제어하는 함수
+            for(i = 0; i < menuLi.length; i++){
+                menuLi[i].index = i; // 지정된 대상 인덱스 값 설정 
+                menuLi[i].addEventListener('click', function(e){ // 반복문을 주었을때 이벤트 주는 대상을 지정하는 것
+                    e.preventDefault();
+                    if(moving) return;
+                    offsety = window.pageYOffset; //pageYOffset 현재 윈도우에서 세로의 값
+                    n = e.currentTarget.index;
+                    h = window.innerHeight;
+                    targety = n * h;
+                    moveCategory(offsety, targety)
+                });
+            }
+
+            function moveCategory(current, target){ // moveCategory(이전 y 위치, 다음 y 위치) 0,2000
                 moving = true; // 현재 애니메이션을 실행하는 상태
 
-                setInterval(function(){
-                    
-                },1)
+                timer = setInterval(function(){
+                    if(target > current){ // 2000 > 0  참이면 실행 
+                        if(Math.abs(target - current) > 8){
+                            current += 8; // 스크롤이 움직이는 거리 값
+                        }else {
+                            current = target;
+                            moving = false;
+                            clearInterval(timer);
+
+
+                            //스크롤이 움직일때 해당되는 버튼 스타일 적용(주석처리)
+                            for(i = 0; i<menuLi.length; i++){
+                                if(i == n){
+                                    menuLi[i].classList.add('active')
+                                }else{
+                                    menuLi[i].classList.remove('active')
+                                }
+                            }
+                        }
+                    }else{
+                        if(Math.abs(target - current) > 8){
+                            current -= 8; // 스크롤이 움직이는 거리 값
+                        }else {
+                            current = target;
+                            moving = false;
+                            clearInterval(timer);
+
+
+                            //스크롤이 움직일때 해당되는 버튼 스타일 적용(주석처리)
+                            for(i =0; i<menuLi.length; i++){
+                                if(i == n){
+                                    menuLi[i].classList.add('active')
+                                }else{
+                                    menuLi[i].classList.remove('active')
+                                }
+                            }
+                        }
+                    }
+                     //window.scrollTo(0, current)
+                    window.scrollTo({
+                    top : current,
+                    behavior :'smooth'
+                     });
+                     
+                },1);
             }
+
+           
+            
 
 
 
